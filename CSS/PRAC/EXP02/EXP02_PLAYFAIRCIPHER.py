@@ -2,6 +2,10 @@
 # CLASS: TE-CO    ROLL-NO.: 18CO63
 # EXPERIMENT NO. 02: PLAYFAIR CIPHER USING PYTHON.
 
+# PROGRAM:
+
+print("\n\t\t PLAYFAIR CIPHER \n")
+
 key=input("ENTER KEY: ")
 key=key.replace(" ", "")
 key=key.upper()
@@ -44,7 +48,7 @@ def locindex(c):
                 return loc
             
 def encrypt():
-    msg=str(input("ENTER MESSAGE: "))
+    msg=str(input("\nENTER MESSAGE: "))
     msg=msg.upper()
     msg=msg.replace(" ", "")             
     i=0
@@ -54,7 +58,7 @@ def encrypt():
                 msg=msg[:s+1]+'X'+msg[s+1:]
     if len(msg)%2!=0:
         msg=msg[:]+'X'
-    print("CIPHER TEXT: ",end=' ')
+    print("\nCIPHER TEXT: ",end=' ')
     while i<len(msg):
         loc=list()
         loc=locindex(msg[i])
@@ -66,13 +70,15 @@ def encrypt():
             print("{}{}".format(my_matrix[loc[0]][(loc[1]+1)%5],my_matrix[loc1[0]][(loc1[1]+1)%5]),end=' ')  
         else:
             print("{}{}".format(my_matrix[loc[0]][loc1[1]],my_matrix[loc1[0]][loc[1]]),end=' ')    
-        i=i+2        
+        i=i+2  
+
+    print("")  
                  
 def decrypt():
-    msg=str(input("ENTER CIPHER TEXT: "))
+    msg=str(input("\nENTER CIPHER TEXT: "))
     msg=msg.upper()
     msg=msg.replace(" ", "")
-    print("PLAIN TEXT: ",end=' ')
+    print("\nPLAIN TEXT: ",end=' ')
     i=0
     while i<len(msg):
         loc=list()
@@ -85,15 +91,19 @@ def decrypt():
             print("{}{}".format(my_matrix[loc[0]][(loc[1]-1)%5],my_matrix[loc1[0]][(loc1[1]-1)%5]),end=' ')  
         else:
             print("{}{}".format(my_matrix[loc[0]][loc1[1]],my_matrix[loc1[0]][loc[1]]),end=' ')    
-        i=i+2        
+        i=i+2   
+
+    print("")     
 
 while(1):
-    choice=int(input("\n 1.ENCRYPTION \n 2.DECRYPTION \n 3.EXIT"))
+    print("\nCHOOSE AN OPTION: \n")
+    choice=int(input(" 1.ENCRYPTION \n 2.DECRYPTION \n 3.EXIT \n\n"))
     if choice==1:
         encrypt()
     elif choice==2:
         decrypt()
     elif choice==3:
+        print("\n EXITING PLAYFAIR CIPHER... \n")
         exit()
     else:
-        print("INVALID OPTION")
+        print("\nINVALID OPTION! CHOOSE CORRECT OPTION \n")

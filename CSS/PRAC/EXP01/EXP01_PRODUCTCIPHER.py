@@ -3,8 +3,11 @@
 # EXPERIMENT NO. 01: PRODUCT CIPHER USING PYTHON.
 
 import string
+
+print("\n\t\t PRODUCT CIPHER \n")
+
 k=int(input("ENTER A KEY VALUE:"))
-d=input("ENTER STRING: ")
+d=input("ENTER A STRING: ")
 ct = []
 alphabets = string.ascii_uppercase
 for j in d:
@@ -40,6 +43,6 @@ for key in range(k):
         if matrix[key][text]!=False:
             answer.append(matrix[key][text])
 
-print("ENCRYPTED TEXT: ",*answer)  
+print("ENCRYPTED TEXT: ", answer)  
 
 
